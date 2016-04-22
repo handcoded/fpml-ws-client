@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://app.fpml.org/ws" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://app.fpml.org/ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://app.fpml.org/ws">
+      <s:element name="StartSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StartSessionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EndSession">
+        <s:complexType />
+      </s:element>
+      <s:element name="EndSessionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SubmitMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="document" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="wait" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveResponseMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="wait" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveResponseMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveResponseMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveNotificationMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="wait" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveNotificationMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveNotificationMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="StartSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:StartSession" />
+  </wsdl:message>
+  <wsdl:message name="StartSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:StartSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="EndSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:EndSession" />
+  </wsdl:message>
+  <wsdl:message name="EndSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:EndSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitMessage" />
+  </wsdl:message>
+  <wsdl:message name="SubmitMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveMessage" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveResponseMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveResponseMessage" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveResponseMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveResponseMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessMessage" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveNotificationMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveNotificationMessage" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveNotificationMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveNotificationMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebInterfaceSoap">
+    <wsdl:operation name="StartSession">
+      <wsdl:input message="tns:StartSessionSoapIn" />
+      <wsdl:output message="tns:StartSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EndSession">
+      <wsdl:input message="tns:EndSessionSoapIn" />
+      <wsdl:output message="tns:EndSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitMessage">
+      <wsdl:input message="tns:SubmitMessageSoapIn" />
+      <wsdl:output message="tns:SubmitMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveMessage">
+      <wsdl:input message="tns:RetrieveMessageSoapIn" />
+      <wsdl:output message="tns:RetrieveMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveResponseMessage">
+      <wsdl:input message="tns:RetrieveResponseMessageSoapIn" />
+      <wsdl:output message="tns:RetrieveResponseMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessage">
+      <wsdl:input message="tns:ProcessMessageSoapIn" />
+      <wsdl:output message="tns:ProcessMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveNotificationMessage">
+      <wsdl:input message="tns:RetrieveNotificationMessageSoapIn" />
+      <wsdl:output message="tns:RetrieveNotificationMessageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebInterfaceSoap" type="tns:WebInterfaceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartSession">
+      <soap:operation soapAction="http://app.fpml.org/ws/StartSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndSession">
+      <soap:operation soapAction="http://app.fpml.org/ws/EndSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitMessage">
+      <soap:operation soapAction="http://app.fpml.org/ws/SubmitMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveMessage">
+      <soap:operation soapAction="http://app.fpml.org/ws/RetrieveMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveResponseMessage">
+      <soap:operation soapAction="http://app.fpml.org/ws/RetrieveResponseMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessage">
+      <soap:operation soapAction="http://app.fpml.org/ws/ProcessMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveNotificationMessage">
+      <soap:operation soapAction="http://app.fpml.org/ws/RetrieveNotificationMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebInterfaceSoap12" type="tns:WebInterfaceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartSession">
+      <soap12:operation soapAction="http://app.fpml.org/ws/StartSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndSession">
+      <soap12:operation soapAction="http://app.fpml.org/ws/EndSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitMessage">
+      <soap12:operation soapAction="http://app.fpml.org/ws/SubmitMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveMessage">
+      <soap12:operation soapAction="http://app.fpml.org/ws/RetrieveMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveResponseMessage">
+      <soap12:operation soapAction="http://app.fpml.org/ws/RetrieveResponseMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessage">
+      <soap12:operation soapAction="http://app.fpml.org/ws/ProcessMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveNotificationMessage">
+      <soap12:operation soapAction="http://app.fpml.org/ws/RetrieveNotificationMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebInterface">
+    <wsdl:port name="WebInterfaceSoap" binding="tns:WebInterfaceSoap">
+      <soap:address location="http://app.fpml.org/ws/WebInterface.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebInterfaceSoap12" binding="tns:WebInterfaceSoap12">
+      <soap12:address location="http://app.fpml.org/ws/WebInterface.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
